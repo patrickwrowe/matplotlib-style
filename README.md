@@ -1,7 +1,6 @@
-```python
-%load_ext autoreload
-%autoreload 2
+# Consistent matplotlib figures across all projects. Easily.
 
+```python
 %matplotlib inline
 ```
 
