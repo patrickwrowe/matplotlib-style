@@ -5,25 +5,34 @@ theme_colours: dict = {
     "dark_grey": "#435562",
     "light_grey": "#C6CFD3",
     "rust": "#f14f30",
-    "whitet": "#FFFFFF",
+    "white": "#FFFFFF",
 }
 
 #  Categorical colours
-theme_categorical: list = [
+theme_categorical_bright: list = [
     "#E14B4B",  # Red
+    "#E1964B",  # Orange
     "#ca4be1",  # Purple
-    "#da2fdc",  # Pink
     "#4b62e1",  # Blue 
     "#2fb0dc",  # Cyan
-    "#4be17f",  # Green
     "#3cda8c",  # Aqua
-    "#E1964B",  # Orange
-    "#f01500",  # Red
     "#edc81e",  # Yellow
-    "#a66e58",  # Grey
+    "#a66e58",  # Brown
 ]  
 
-def setup_matplotlib_environment(self) -> None:
+theme_categorical_pastel: list = [
+    "#95D0A9",  # Light Green
+    "#DAC4F7",  # Light Purple
+    "#F4989C",  # Light Red
+    "#EBD2B4",  # Light Orange
+    "#ACECF7",  # Light Blue
+    "#59594A",  # Dark Grey
+    "#7588A3",  # Blue Grey
+    "#B9314F",  # Red
+]
+
+
+def setup_matplotlib_environment() -> None:
     """Set up the matplotlib plotting environment
     to use a default style.
     """
@@ -47,11 +56,11 @@ def setup_matplotlib_environment(self) -> None:
     plt.rcParams["xtick.top"] = True
 
     # Axes
-    plt.rcParams["axes.edgecolor"] = self.theme_colours["theme_dark_grey"]
-    plt.rcParams["axes.titlecolor"] = self.theme_colours["theme_dark_grey"]
-    plt.rcParams["axes.labelcolor"] = self.theme_colours["theme_dark_grey"]
-    plt.rcParams["xtick.color"] = self.theme_colours["theme_dark_grey"]
-    plt.rcParams["ytick.color"] = self.theme_colours["theme_dark_grey"]
+    plt.rcParams["axes.edgecolor"] = theme_colours["dark_grey"]
+    plt.rcParams["axes.titlecolor"] = theme_colours["dark_grey"]
+    plt.rcParams["axes.labelcolor"] = theme_colours["dark_grey"]
+    plt.rcParams["xtick.color"] = theme_colours["dark_grey"]
+    plt.rcParams["ytick.color"] = theme_colours["dark_grey"]
 
     # Line width
     plt.rcParams["xtick.major.width"] = 3.0
@@ -61,7 +70,7 @@ def setup_matplotlib_environment(self) -> None:
     plt.rcParams["axes.linewidth"] = 3.0
 
     # Line Colours
-    plt.rcParams["axes.prop_cycle"] = plt.cycler("color", self.theme_categorical)
+    plt.rcParams["axes.prop_cycle"] = plt.cycler("color", theme_categorical_pastel)
 
     # Markers
     plt.rcParams["lines.markersize"] = 10
